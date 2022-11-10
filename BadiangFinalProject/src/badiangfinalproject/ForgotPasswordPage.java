@@ -80,3 +80,8 @@ public class ForgotPasswordPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
+
+/*
+1.) resize the frame depending on whats your prefered size
+2.) put some jLabel, JTextField jButtons
+*/
