@@ -1,5 +1,8 @@
 package badiangfinalproject;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.IntelliJTheme;
+
 public class loadingPage extends javax.swing.JFrame {
 
     public loadingPage() {
@@ -61,6 +64,7 @@ public class loadingPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
+        FlatIntelliJLaf.setup();
         loadingPage lp = new loadingPage();
 
         /* Create and display the form */
@@ -106,4 +110,4 @@ public class loadingPage extends javax.swing.JFrame {
 10.) make a if-else statement with a condition:
         10.1) if i == 100 then this page will dispose name.setVisible(false);
 11.) outside of the for-loop display the frame of LogInPage ex. name.setVisible(true);
-*/
+ */
