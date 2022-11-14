@@ -1,7 +1,7 @@
 package badiangfinalproject;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.IntelliJTheme;
+
 
 public class loadingPage extends javax.swing.JFrame {
 
@@ -74,8 +74,8 @@ public class loadingPage extends javax.swing.JFrame {
                 lp.setVisible(true);
             }
         });
-        LogInPage logInPage = new LogInPage();
-        for (int i = 0; i <= 100; i++) {
+        logIn login = new logIn();
+        for (int i = 90; i <= 100; i++) {
             try {
                 Thread.sleep(100);
                 lp.loadtext.setText(String.valueOf(i) + "%");
@@ -85,7 +85,7 @@ public class loadingPage extends javax.swing.JFrame {
             } catch (InterruptedException ex) {
             }
         }
-        logInPage.setVisible(true);
+        login.setVisible(true);
         lp.dispose();
     }
 
