@@ -56,7 +56,7 @@ public class dashboard extends javax.swing.JFrame {
         registerPage.setLayout(registerPageLayout);
         registerPageLayout.setHorizontalGroup(
             registerPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1070, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         registerPageLayout.setVerticalGroup(
             registerPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,7 +69,7 @@ public class dashboard extends javax.swing.JFrame {
         ListPgae.setLayout(ListPgaeLayout);
         ListPgaeLayout.setHorizontalGroup(
             ListPgaeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1070, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         ListPgaeLayout.setVerticalGroup(
             ListPgaeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,7 +82,7 @@ public class dashboard extends javax.swing.JFrame {
         paymentPage.setLayout(paymentPageLayout);
         paymentPageLayout.setHorizontalGroup(
             paymentPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1070, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         paymentPageLayout.setVerticalGroup(
             paymentPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +91,7 @@ public class dashboard extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab1", paymentPage);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 0, 1070, 580));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 0, 720, 580));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
