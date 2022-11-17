@@ -126,10 +126,11 @@ public class logIn extends javax.swing.JFrame {
 
             if (c.rs.next()) {
                 JOptionPane.showMessageDialog(null, "Login Successfully");
-                dashboard main = new dashboard();
+                Client_dashboard main = new Client_dashboard();
+                dispose();
                 main.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Message, please try again");
+                JOptionPane.showMessageDialog(null, "Invalid Credentials, please try again");
                 usernameField.setText("");
                 passwordField.setText("");
             }
