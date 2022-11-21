@@ -17,7 +17,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
     public Admin_dashboard() {
         initComponents();
         display_to_table();
-
+        
     }
 
     @SuppressWarnings("unchecked")
