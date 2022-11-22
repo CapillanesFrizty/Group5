@@ -17,7 +17,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
     public Admin_dashboard() {
         initComponents();
         display_to_table();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -188,7 +188,6 @@ public class Admin_dashboard extends javax.swing.JFrame {
 
         memtype.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         memtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Daily", "Monthly" }));
-        memtype.setSelectedIndex(-1);
         memtype.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 memtypeItemStateChanged(evt);
@@ -407,7 +406,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
         );
 
         create.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        create.setText("Create");
+        create.setText("Add Client");
         create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createActionPerformed(evt);
@@ -553,7 +552,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -664,17 +663,9 @@ public class Admin_dashboard extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Admin_dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Admin_dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Admin_dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Admin_dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -759,11 +750,11 @@ public class Admin_dashboard extends javax.swing.JFrame {
         String C_ContactNUmber = contactNumber.getText();
         String C_Username = username.getText().toLowerCase();
         String C_Password = password.getText().toLowerCase();
-        int membership = memtype.getSelectedIndex();
+        int memberships = memtype.getSelectedIndex() ;
         int C_Age = (int) age.getValue();
 
-        String Query = "insert into client_member(C_ID, C_Fname, C_Lname, C_Age, C_Address, C_Gender, C_ContactNUmber, C_Username, C_Password, Membership,Payment_Status) values ('" + 0 + "','" + C_Fname + "','" + C_Lname + "', '" + C_Age + "','" + C_Address + "','" + C_Gender + "','" + C_ContactNUmber + "','" + C_Username + "','" + C_Password + "','" + membership + "','Paid')";
-
+        String Query = "INSERT INTO `client_member`(`C_Fname`, `C_Lname`, `C_Age`, `C_Address`, `C_Gender`, `C_ContactNUmber`, `C_Username`, `C_Password`, `Mem_type`, `Payment_Status`) VALUES ('"+ C_Fname + "','" + C_Lname + "', '" + C_Age + "','" + C_Address + "','" + C_Gender + "','" + C_ContactNUmber + "','" + C_Username + "','" + C_Password + "','" + memberships + "','Paid')";
+        
         try {
             database.mystate = database.con.createStatement();
             database.mystate.execute(Query);
@@ -792,18 +783,18 @@ public class Admin_dashboard extends javax.swing.JFrame {
 
     public void display_to_table() {
         try {
-            String query = "SELECT `C_ID`,`C_Fname`,`C_Lname`,`C_Gender`, `Membership`,`Payment_Status` FROM `client_member`";
+            String query = "SELECT client_member.C_ID, client_member.C_Fname, client_member.C_Lname, client_member.C_Gender,  membership_type.Type_name FROM client_member JOIN membership_type ON client_member.Mem_type = membership_type.MemberType_ID";
             database.connect();
             database.rs = database.mystate.executeQuery(query);
 
             while (database.rs.next()) {
-                String id = String.valueOf(database.rs.getInt("C_ID"));
-                String fullname = database.rs.getString("C_Fname") + " " + database.rs.getString("C_Lname");
-                String gender = database.rs.getString("C_Gender");
-                String membertype = String.valueOf(database.rs.getInt("Membership"));
-                String paystat = database.rs.getString("Payment_Status");
-
-                String Data[] = {id, fullname, gender, membertype, paystat};
+                String id = database.rs.getString("client_member.C_ID");
+                String fullname = database.rs.getString("client_member.C_Fname") + " " + database.rs.getString("client_member.C_Lname");
+                String gender = database.rs.getString("client_member.C_Gender");
+                String membertype = database.rs.getString("membership_type.Type_name");
+                
+               
+                String Data[] = {id, fullname, gender,membertype};
                 tblmodel = (DefaultTableModel) clients_table.getModel();
                 tblmodel.addRow(Data);
             }

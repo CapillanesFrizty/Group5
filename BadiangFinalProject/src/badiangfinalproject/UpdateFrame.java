@@ -168,13 +168,13 @@ public class UpdateFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField fname;
+    public javax.swing.JTextField fname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField lname;
+    public javax.swing.JTextField lname;
     private javax.swing.JComboBox<String> memtype;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
