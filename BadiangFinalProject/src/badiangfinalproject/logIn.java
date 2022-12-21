@@ -1,6 +1,8 @@
 package badiangfinalproject;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -117,18 +119,40 @@ public class logIn extends javax.swing.JFrame {
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
 
         String username = usernameField.getText();
-        String pass =passwordField.getText();
-        String Query = "SELECT * FROM client_member WHERE C_Username = '" + username + "'  AND C_Password = '" + pass + "'";
+        String pass = passwordField.getText();
+        String Query = "SELECT * FROM client_member WHERE C_Username = '" + username + "'  AND C_Password = md5('" + pass + "') AND `Payment_Status` = 'paid'";
+        String quString = "SELECT * FROM `attendance` WHERE Username = '" + username + "'";
 
         try {
             c.connect();
+            c.rs2 = c.mystate.executeQuery(quString);
+            if (c.rs2.next()) {
+                JOptionPane.showMessageDialog(null, "Client is already IN");
+                usernameField.setText("");
+                passwordField.setText("");
+                return;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            c.connect();
             c.rs = c.mystate.executeQuery(Query);
-
             if (c.rs.next()) {
-                JOptionPane.showMessageDialog(null, "Login Successfully");
-                Client_dashboard main = new Client_dashboard();
-                dispose();
-                main.setVisible(true);
+                int id = c.rs.getInt("C_ID");
+                SimpleDateFormat formatter = new SimpleDateFormat("hh:mm");
+                Date date = new Date();
+                String currenttime = formatter.format(date);
+                String quer = "INSERT INTO `attendance`(`C_ID`, `Username`, `Time in`) VALUES('" + id + "','" + username + "','" + currenttime + "')";
+                try {
+                    c.mystate = c.con.createStatement();
+                    c.mystate.execute(quer);
+                    JOptionPane.showMessageDialog(null, "Login Successfully");
+                    usernameField.setText("");
+                    passwordField.setText("");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid Credentials, please try again");
                 usernameField.setText("");
