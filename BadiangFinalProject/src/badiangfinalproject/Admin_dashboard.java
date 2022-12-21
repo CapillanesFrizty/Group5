@@ -19,6 +19,8 @@ public class Admin_dashboard extends javax.swing.JFrame {
 
     public Admin_dashboard() {
         initComponents();
+        setSize(950, 715);
+        setResizable(false);
         tab.setSelectedIndex(1);
         paid_display_to_table();
         display_nonpaid_client();
