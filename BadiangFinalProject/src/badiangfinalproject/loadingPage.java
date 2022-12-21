@@ -15,7 +15,7 @@ public class loadingPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
+        kGradientPanel1 = new org.netbeans.modules.form.InvalidComponent();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         loadtext = new javax.swing.JLabel();
@@ -23,10 +23,6 @@ public class loadingPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
-        getContentPane().setLayout(new java.awt.BorderLayout());
-
-        kGradientPanel1.setkEndColor(new java.awt.Color(0, 102, 102));
-        kGradientPanel1.setkStartColor(new java.awt.Color(0, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Registration Form/Logo Project Badiang.png"))); // NOI18N
@@ -38,17 +34,17 @@ public class loadingPage extends javax.swing.JFrame {
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(156, 156, 156))
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(194, 194, 194)
-                .addComponent(loadtext)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(178, 178, 178)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(164, Short.MAX_VALUE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(loadtext, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)))
+                .addGap(156, 156, 156))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -56,10 +52,10 @@ public class loadingPage extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loadtext)
+                .addComponent(loadtext, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -70,7 +66,7 @@ public class loadingPage extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -108,22 +104,7 @@ public class loadingPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private keeptoo.KGradientPanel kGradientPanel1;
+    private org.netbeans.modules.form.InvalidComponent kGradientPanel1;
     private javax.swing.JLabel loadtext;
     // End of variables declaration//GEN-END:variables
 }
-
-/*
-1.) resize the frame into 600x350
-2.) insert a jProgressBar
-3.) insert a jLabel above the progress bar
-4.) inside of the main method below line 57 instanciate the class "loadingPage" and "LogInPage" ex. example name = new example();
-5.) in line 61 replace new loadingPage() into the name of the object ex. name.setVisible(true);
-6.) make a for-loop below line 63 make the condition into i <=100
-7.) inside the for loop make a try-catch statement
-8.) inside the try catch statement put a thread.sleep(1000) which controls the time of execution, 1000 refers to the time but in miliseconds
-9.) set the value of the jLabel and jProgressBar into the value of our i in the for loop
-10.) make a if-else statement with a condition:
-        10.1) if i == 100 then this page will dispose name.setVisible(false);
-11.) outside of the for-loop display the frame of LogInPage ex. name.setVisible(true);
- */
