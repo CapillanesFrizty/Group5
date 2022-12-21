@@ -19,6 +19,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
 
     public Admin_dashboard() {
         initComponents();
+        tab.setSelectedIndex(1);
         paid_display_to_table();
         display_nonpaid_client();
         display_Attendance();
@@ -31,7 +32,11 @@ public class Admin_dashboard extends javax.swing.JFrame {
         sex = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        create = new javax.swing.JButton();
+        payment = new javax.swing.JButton();
+        list = new javax.swing.JButton();
+        attend = new javax.swing.JButton();
+        tab = new javax.swing.JTabbedPane();
         ListPgae = new javax.swing.JPanel();
         searchbar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -77,27 +82,51 @@ public class Admin_dashboard extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         nonpaid_table = new javax.swing.JTable();
         paybtn = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        attendance = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         attedance = new javax.swing.JTable();
         ref = new javax.swing.JButton();
         out = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(102, 255, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 48, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jPanel2.setLayout(new java.awt.GridLayout(0, 1));
+
+        create.setText("jButton1");
+        create.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createActionPerformed(evt);
+            }
+        });
+        jPanel2.add(create);
+
+        payment.setText("jButton2");
+        payment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymentActionPerformed(evt);
+            }
+        });
+        jPanel2.add(payment);
+
+        list.setText("jButton3");
+        list.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listActionPerformed(evt);
+            }
+        });
+        jPanel2.add(list);
+
+        attend.setText("jButton4");
+        attend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                attendActionPerformed(evt);
+            }
+        });
+        jPanel2.add(attend);
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 43, 677));
 
         searchbar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -187,10 +216,10 @@ public class Admin_dashboard extends javax.swing.JFrame {
                     .addComponent(refresh))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("List of Clients", ListPgae);
+        tab.addTab("List of Clients", ListPgae);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -464,7 +493,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
         registerPageLayout.setHorizontalGroup(
             registerPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPageLayout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(119, 119, 119))
         );
@@ -473,10 +502,10 @@ public class Admin_dashboard extends javax.swing.JFrame {
             .addGroup(registerPageLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Create", registerPage);
+        tab.addTab("Create", registerPage);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel15.setText("Payment Method :");
@@ -509,7 +538,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
                     .addComponent(paybtn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentPageLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(118, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1015, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -522,10 +551,10 @@ public class Admin_dashboard extends javax.swing.JFrame {
                 .addComponent(paybtn)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Payment", paymentPage);
+        tab.addTab("Payment", paymentPage);
 
         attedance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -551,59 +580,36 @@ public class Admin_dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Clear");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout attendanceLayout = new javax.swing.GroupLayout(attendance);
+        attendance.setLayout(attendanceLayout);
+        attendanceLayout.setHorizontalGroup(
+            attendanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(attendanceLayout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addGroup(attendanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 914, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, attendanceLayout.createSequentialGroup()
                         .addComponent(out)
                         .addGap(18, 18, 18)
                         .addComponent(ref)
                         .addGap(12, 12, 12)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        attendanceLayout.setVerticalGroup(
+            attendanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, attendanceLayout.createSequentialGroup()
+                .addContainerGap(142, Short.MAX_VALUE)
+                .addGroup(attendanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ref)
-                    .addComponent(out)
-                    .addComponent(jButton1))
+                    .addComponent(out))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGap(85, 85, 85))
         );
 
-        jTabbedPane1.addTab("Attendance", jPanel5);
+        tab.addTab("Attendance", attendance);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel1.add(tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, -43, -1, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -642,7 +648,6 @@ public class Admin_dashboard extends javax.swing.JFrame {
         }
 
         up.setVisible(true);
-
     }//GEN-LAST:event_UpdateActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
@@ -693,8 +698,6 @@ public class Admin_dashboard extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }//GEN-LAST:event_paybtnActionPerformed
 
     private void createClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createClientActionPerformed
@@ -768,17 +771,21 @@ public class Admin_dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_outActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String  query = "TRUNCATE TABLE `gym`.`attendance`";
-        try {
-            database.connect();
-            database.mystate.execute(query);
-            DefaultTableModel tblmodel1 = (DefaultTableModel) attedance.getModel();
-            tblmodel1.setRowCount(0);
-            display_Attendance();
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
+       tab.setSelectedIndex(1);
+    }//GEN-LAST:event_createActionPerformed
+
+    private void paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentActionPerformed
+       tab.setSelectedIndex(2);
+    }//GEN-LAST:event_paymentActionPerformed
+
+    private void listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listActionPerformed
+        tab.setSelectedIndex(0);
+    }//GEN-LAST:event_listActionPerformed
+
+    private void attendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attendActionPerformed
+       tab.setSelectedIndex(3);
+    }//GEN-LAST:event_attendActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -814,16 +821,18 @@ public class Admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField address;
     private javax.swing.JTextField age;
     private javax.swing.JTable attedance;
+    private javax.swing.JButton attend;
+    private javax.swing.JPanel attendance;
     private javax.swing.JButton cancel;
     private javax.swing.JButton clear;
     public javax.swing.JTable clients_table;
     private javax.swing.JTextField contactNumber;
+    private javax.swing.JButton create;
     private javax.swing.JButton createClient;
     private javax.swing.JButton delete;
     private javax.swing.JLabel endDate;
     private javax.swing.JRadioButton fmale;
     private javax.swing.JTextField fname;
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -842,13 +851,12 @@ public class Admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton list;
     private javax.swing.JTextField lname;
     private javax.swing.JRadioButton male;
     private javax.swing.JComboBox<String> memtype;
@@ -856,6 +864,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JButton out;
     private javax.swing.JPasswordField passwordfield;
     private javax.swing.JButton paybtn;
+    private javax.swing.JButton payment;
     private javax.swing.JPanel paymentPage;
     private javax.swing.JButton ref;
     private javax.swing.JButton refresh;
@@ -863,6 +872,7 @@ public class Admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField searchbar;
     private javax.swing.ButtonGroup sex;
     private javax.swing.JLabel startdate;
+    private javax.swing.JTabbedPane tab;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 
