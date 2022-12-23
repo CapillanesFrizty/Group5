@@ -11,6 +11,7 @@ public class UpdateFrame extends javax.swing.JFrame {
     Admin_dashboard dashb = new Admin_dashboard();
     int id;
 
+    
     public UpdateFrame() {
         initComponents();
         setLocationRelativeTo(null);
@@ -156,7 +157,7 @@ public class UpdateFrame extends javax.swing.JFrame {
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         upadte();
-
+        dashb.database
     }//GEN-LAST:event_submitActionPerformed
 
     public static void main(String args[]) {
